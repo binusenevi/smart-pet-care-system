@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    private UserRepository
+    private UserRepository userRepository;
 }
