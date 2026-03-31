@@ -18,6 +18,7 @@ public class UserController {
         return userService.saveUser(user);
     }
 
+
     @GetMapping("/test")
     public String test() {
         return "User Controller is working!";

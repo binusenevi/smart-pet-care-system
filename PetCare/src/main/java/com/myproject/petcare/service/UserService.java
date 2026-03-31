@@ -12,6 +12,17 @@ public class UserService {
     private UserRepository userRepository;
 
     public User saveUser(User user) {
+
+        if (user.getEmail() == null || user.getEmail().isEmpty()) {
+            user.setEmail("temp_" + System.currentTimeMillis() + "@petcare.com");
+        }
+        if (user.getPassword() == null) {
+            user.setPassword("default123");
+        }
+        if (user.getRole() == null) {
+            user.setRole("PET_OWNER");
+        }
+
         return userRepository.save(user);
     }
 }
