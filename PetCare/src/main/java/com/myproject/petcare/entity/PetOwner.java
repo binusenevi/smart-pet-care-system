@@ -1,12 +1,17 @@
 package com.myproject.petcare.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
 @Table(name = "pet_owner")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PetOwner {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,33 +25,6 @@ public class PetOwner {
     @JoinColumn(name = "user_id")
     private User user;
 
-
     @OneToMany(mappedBy = "petOwner", cascade = CascadeType.ALL)
     private List<Pet> pets;
-
-    // Default Constructor
-    public PetOwner() {
-    }
-
-    // Getters and Setters (අතින් ලිවීම වඩාත් සුදුසුයි)
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public String getFullName() { return fullName; }
-    public void setFullName(String fullName) { this.fullName = fullName; }
-
-    public String getNic() { return nic; }
-    public void setNic(String nic) { this.nic = nic; }
-
-    public String getContactNo() { return contactNo; }
-    public void setContactNo(String contactNo) { this.contactNo = contactNo; }
-
-    public String getLocation() { return location; }
-    public void setLocation(String location) { this.location = location; }
-
-    public User getUser() { return user; }
-    public void setUser(User user) { this.user = user; }
-
-    public List<Pet> getPets() { return pets; }
-    public void setPets(List<Pet> pets) { this.pets = pets; }
 }

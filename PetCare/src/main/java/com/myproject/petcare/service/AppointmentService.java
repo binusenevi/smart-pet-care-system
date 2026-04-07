@@ -13,7 +13,7 @@ public class AppointmentService {
     private AppointmentRepository appointmentRepository;
 
     public Appointment saveAppointment(Appointment appointment) {
-        appointment.setStatus("PENDING"); // මුලින්ම හැදෙද්දී status එක pending ලෙස දමමු
+        appointment.setStatus("PENDING");
         return appointmentRepository.save(appointment);
     }
 
