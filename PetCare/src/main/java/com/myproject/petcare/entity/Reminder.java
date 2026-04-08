@@ -1,27 +1,23 @@
 package com.myproject.petcare.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Reminder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
-    private String task_Name;
-    private String status;
+
+    private String title;
+    private String description;
     private String date;
+    private String time;
 
-
-
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
 }
